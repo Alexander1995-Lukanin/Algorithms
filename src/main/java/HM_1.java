@@ -43,9 +43,8 @@ public class HM_1 {
 
     //        3. получить сумму всех чисел в ряду от 0 до 100.
         public static int sumThreeNumbers(){
-            int a=0;
+            int a=1;
             int b=100;
-            return (b+a+1)*b/2;
-
+            return (b+a)*(b/2);
         }
 }
