@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class HM_1 {
     public static void main(String[] args) {
         System.out.println  (exponentiation (3, 2));
