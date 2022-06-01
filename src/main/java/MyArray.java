@@ -81,12 +81,25 @@ public class MyArray {
         this.arr[a] = this.arr[b];
         this.arr[b] = tmp;
     }
+    public void countSort(int maxValue) {
+        int[] count = new int [maxValue];
+            for (int idx = 0; idx < capacity; idx++){
+                count [this.arr[idx]] = count[this.arr[idx]]+1;
+            }
+            int arrIndex=0;
+        for (int i = 0; i < count.length; i++){
+            for (int j = 0; j < count[i]; j++){
+                arr[arrIndex]=i;
+                arrIndex++;
+            }
+        }
 
+    }
     public void sortBubble() {
         for (int iter = 0; iter < capacity; iter++)
-            for (int idx = 0; idx < capacity - 1; idx++)
-                if (this.arr[idx] > this.arr[idx + 1])
-                    swap(idx, idx + 1);
+            for (int idx = capacity -1 ; idx >iter; idx--)
+                if (this.arr[idx] < this.arr[idx - 1])
+                    swap(idx, idx - 1);
     }
 
     public void sortSelect() {
@@ -110,5 +123,39 @@ public class MyArray {
             }
             this.arr[move] = temp;
         }
+    }
+
+    boolean deleteAll(int value) {
+        int[] newArr;
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] == value) {
+                newArr = new int[arr.length - 1];
+                for (int index = 0; index < i; index++) {
+                    newArr[index] = arr[index];
+                }
+                for (int j = i; j < arr.length - 1; j++) {
+                    newArr[j] = arr[j + 1];
+                }
+                break;
+            }
+        }
+        return true;
+    }
+    boolean deleteAll(){
+        arr = new int[arr.length];
+        return  true;
+    }
+    void insert(int idx, int value){// shift the tail
+            int[] destArray = new int[arr.length+1];
+            int j = 0;
+            for(int i = 0; i < destArray.length-1; i++) {
+                if(i == idx) {
+                    destArray[i] = value;
+                } else {
+                    destArray[i] = arr[j];
+                    j++;
+                }
+            }
+
     }
 }
